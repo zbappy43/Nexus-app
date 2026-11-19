@@ -16,6 +16,8 @@ Outputs (all PNG):
   assets/icons/app_icon.png                 legacy launcher icon (1024px)
   assets/icons/app_icon_foreground.png      adaptive icon foreground (1024px)
   assets/icons/app_icon_monochrome.png      Android 13 themed icon (white silhouette)
+  android/app/src/main/res/drawable-*/ic_stat_notification.png      status-bar icon
+  android/app/src/main/res/drawable-*/ic_stat_onesignal_default.png
   android/app/src/main/res/mipmap-*/ic_launcher_round.png
   android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
 
@@ -91,6 +93,18 @@ def generate_main():
     save(on_canvas(monochrome(emblem), 1024, 0.98), 'assets/icons/app_icon_monochrome.png')
 
 
+def generate_notification():
+    """Status-bar icons: white silhouette, 24dp at every density. Used for
+    local / FCM notifications (ic_stat_notification) and OneSignal
+    (ic_stat_onesignal_default, picked up by name)."""
+    silhouette = monochrome(load_emblem(1024))
+    densities = {'mdpi': 24, 'hdpi': 36, 'xhdpi': 48, 'xxhdpi': 72, 'xxxhdpi': 96}
+    for name, px in densities.items():
+        icon = silhouette.resize((px, px), Image.LANCZOS)
+        for res in ('ic_stat_notification', 'ic_stat_onesignal_default'):
+            save(icon, f'android/app/src/main/res/drawable-{name}/{res}.png')
+
+
 def generate_round():
     densities = {'mdpi': 48, 'hdpi': 72, 'xhdpi': 96, 'xxhdpi': 144, 'xxxhdpi': 192}
     emblem = load_emblem(1024)
@@ -113,4 +127,5 @@ if __name__ == '__main__':
     args = parser.parse_args()
     if not args.round_only:
         generate_main()
+        generate_notification()
     generate_round()

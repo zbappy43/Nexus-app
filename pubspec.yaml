@@ -3,7 +3,7 @@ description: "Nexus Consumers Limited – official Android app."
 publish_to: 'none'
 
 # versionName+versionCode. Increase the build number (+N) for every Play upload.
-version: 1.0.0+2
+version: 1.0.0+3
 
 environment:
   sdk: ^3.14.0
