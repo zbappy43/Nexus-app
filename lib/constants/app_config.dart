@@ -19,7 +19,7 @@ abstract final class AppConfig {
   /// Root URL of the website rendered by the app (no trailing slash).
   static const String baseUrl = String.fromEnvironment(
     'BASE_URL',
-    defaultValue: 'https://YOUR-DOMAIN.COM',
+    defaultValue: 'https://www.nexusglobalplc.com',
   );
 
   /// Custom deep-link scheme, e.g. `myapp://wallet` → `$baseUrl/wallet`.
@@ -73,7 +73,7 @@ abstract final class AppConfig {
   /// Base64 SHA-256 fingerprints of the DER encoded server certificate(s)
   /// for the website host. When non-empty, every native HTTP request and every
   /// main-frame page load in the WebView is verified against these pins.
-  /// Generate with `tools/generate_ssl_pins.sh your-domain.com`.
+  /// Generate with `tools/generate_ssl_pins.sh www.nexusglobalplc.com`.
   static const String _sslPinsRaw = String.fromEnvironment('SSL_PINS');
 
   static List<String> get sslPins => _sslPinsRaw
@@ -100,7 +100,12 @@ abstract final class AppConfig {
 
   static Uri get baseUri => Uri.parse(baseUrl);
 
-  static String get webHost => baseUri.host.toLowerCase();
+  /// Registrable website host without a leading `www.` (e.g. `nexusglobalplc.com`).
+  /// Both the bare domain and every subdomain (including `www`) are first-party.
+  static String get webHost {
+    final String host = baseUri.host.toLowerCase();
+    return host.startsWith('www.') ? host.substring(4) : host;
+  }
 
   /// Builds an absolute website URL from a [path] (which may already be absolute).
   static String url(String path) {

@@ -102,6 +102,13 @@ void main() {
       expect(UrlUtils.classify(Uri.parse('https://sub.$host/x')), UrlAction.internal);
     });
 
+    test('treats the bare domain and www as the same website', () {
+      expect(AppConfig.webHost, 'nexusglobalplc.com');
+      expect(UrlUtils.classify(Uri.parse('https://nexusglobalplc.com/login')), UrlAction.internal);
+      expect(UrlUtils.classify(Uri.parse('https://www.nexusglobalplc.com/team')), UrlAction.internal);
+      expect(UrlUtils.isFirstPartyHost('evilnexusglobalplc.com'), isFalse);
+    });
+
     test('hands app links to other apps', () {
       expect(UrlUtils.classify(Uri.parse('tel:+8801700000000')), UrlAction.external);
       expect(UrlUtils.classify(Uri.parse('mailto:info@example.com')), UrlAction.external);

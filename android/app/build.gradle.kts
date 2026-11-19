@@ -25,7 +25,7 @@ if (hasReleaseKeystore) {
     FileInputStream(keystorePropertiesFile).use { keystoreProperties.load(it) }
 }
 
-val webHost: String = (project.findProperty("nexus.webHost") as String?) ?: "your-domain.com"
+val webHost: String = (project.findProperty("nexus.webHost") as String?) ?: "nexusglobalplc.com"
 val deepLinkScheme: String = (project.findProperty("nexus.deepLinkScheme") as String?) ?: "myapp"
 
 android {

@@ -38,7 +38,7 @@ overridden with `--dart-define`:
 
 | Define | Default | Purpose |
 |---|---|---|
-| `BASE_URL` | `https://YOUR-DOMAIN.COM` | Website root rendered by the app |
+| `BASE_URL` | `https://www.nexusglobalplc.com` | Website root rendered by the app |
 | `PATH_HOME`, `PATH_TEAM`, `PATH_WALLET`, `PATH_PROFILE` | `/`, `/team`, `/wallet`, `/profile` | Bottom-navigation tabs |
 | `PATH_TRAINING`, `PATH_NOTICE`, `PATH_SUPPORT`, `PATH_CONTACT`, `PATH_ABOUT`, `PATH_PRIVACY` | `/training` … `/privacy-policy` | Drawer entries |
 | `PATH_LOGIN`, `PATH_LOGOUT`, `PATH_REGISTER` | `/login`, `/logout`, `/register` | Auto-login detection, logout, referral link |
@@ -206,7 +206,7 @@ if (window.NexusApp) {
   debugger attaches.
 * **Certificate pinning** (`SSL_PINS`): every native HTTPS request and every
   first-party page load in the WebView is checked against the pins.
-  Generate with `tools/generate_ssl_pins.sh your-domain.com`. Pins are for the leaf
+  Generate with `tools/generate_ssl_pins.sh www.nexusglobalplc.com`. Pins are for the leaf
   certificate – include the next certificate's pin before each renewal.
 * Session cookies are protected by HTTPS-only transport; mark them `Secure; HttpOnly;
   SameSite=Lax` on the server.
