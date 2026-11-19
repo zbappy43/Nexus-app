@@ -3,5 +3,5 @@
     <color name="brand_primary">#0A7C3E</color>
     <color name="brand_accent">#FFD700</color>
     <color name="notification_color">#0A7C3E</color>
-	<color name="ic_launcher_background">#0A7C3E</color>
+	<color name="ic_launcher_background">#FFFFFF</color>
 </resources>

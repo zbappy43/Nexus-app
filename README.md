@@ -213,9 +213,14 @@ if (window.NexusApp) {
 
 ## 9. Branding
 
-`python3 tools/generate_brand_assets.py` generates the logo, launcher icons
-(adaptive, round, monochrome) and splash images. To use official artwork, replace
-the PNGs in `assets/icons/` and `assets/images/`, then:
+All brand images are generated from the official emblem
+`assets/brand/logo_source.jpg`: in-app logo, launcher icons (legacy, adaptive,
+round, Android 13 monochrome) and native splash (incl. Android 12).
+To rebrand, replace that file and run:
+
+```bash
+python3 tools/generate_brand_assets.py
+```
 
 ```bash
 dart run flutter_launcher_icons

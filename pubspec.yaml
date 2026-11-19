@@ -3,7 +3,7 @@ description: "Nexus Consumers Limited – official Android app."
 publish_to: 'none'
 
 # versionName+versionCode. Increase the build number (+N) for every Play upload.
-version: 1.0.0+1
+version: 1.0.0+2
 
 environment:
   sdk: ^3.14.0
@@ -73,7 +73,7 @@ flutter_launcher_icons:
   android: "ic_launcher"
   ios: false
   image_path: "assets/icons/app_icon.png"
-  adaptive_icon_background: "#0A7C3E"
+  adaptive_icon_background: "#FFFFFF"
   adaptive_icon_foreground: "assets/icons/app_icon_foreground.png"
   adaptive_icon_monochrome: "assets/icons/app_icon_monochrome.png"
   min_sdk_android: 24
@@ -88,9 +88,9 @@ flutter_native_splash:
   image_dark: assets/images/splash_logo.png
   android_12:
     image: assets/images/splash_logo_android12.png
-    icon_background_color: "#0A7C3E"
+    icon_background_color: "#FFFFFF"
     image_dark: assets/images/splash_logo_android12.png
-    icon_background_color_dark: "#065A2C"
+    icon_background_color_dark: "#FFFFFF"
   android: true
   ios: false
   web: false
